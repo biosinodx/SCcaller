@@ -1,6 +1,8 @@
 # SCcaller
 Single Cell Caller (SCcaller) - Identify single nucleotide variations (SNVs) from single cell sequencing data
 
+Version 1.0
+
 Updated date: 2016.05.17
 
 #####
