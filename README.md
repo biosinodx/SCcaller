@@ -108,6 +108,8 @@ python reasoning.py -m bulk.chr1.mpileup -i cell.chr1.sccaller.bed -o cell-bulk.
 #####
 ##RELEASE NOTES
 
+V1.1, 2016.07.25, fixing bugs
+
 v1.0, 2016.04.26, the cleanup and release version of v0.0.4
 
 v0.0.4, 2016.04.26, fixed bugs in readling mpileup file
