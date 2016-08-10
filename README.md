@@ -39,7 +39,7 @@ I highly recommend users generate mpileup files for each chromosome (as above), 
 
 python sccaller.py -a hsnp -i cell.chr1.mpileup --snpin snpin.bed/vcf --snp dbsnp/control -o outputheader.chr1
 
-The snpin.bed or snpin.vcf is a file of candidate snp positions in bed (1-based) or vcf format. One can use either public dbSNP SNPs (--snp dbsnp) or SNPs identified in bulk cell population sequencing obtained from the same individual (--snp control).
+The snpin.bed or snpin.vcf is a file of candidate snp positions in bed (1-based) or vcf format. One can use either public dbSNP SNPs (--snp dbsnp) or heterozygous SNPs identified in bulk cell population sequencing obtained from the same individual (--snp control). Note, the input has to be heterozyous SNPs when using choosing "--snp control".
 
 This list of known heterozygous SNPs does not have to be precise, because the following analysis is robust to noise at this step and SNVs will be recalled using SCcaller in later steps.
 
