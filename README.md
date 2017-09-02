@@ -1,9 +1,13 @@
 # SCcaller
-Single Cell Caller (SCcaller) - Identify single nucleotide variations (SNVs) from single cell sequencing data
+Single Cell Caller (SCcaller) - Identify single nucleotide variations (SNVs) and short insertions and deletions (INDELs) from single cell sequencing data
 
-Version 1.1
+Version 1.2
 
-Updated date: 2016.07.25
+Updated date: 2017.09.01
+
+Cite us:
+
+Dong X et al. Accurate identification of single-nucleotide variants in whole-genome-amplified single cells. Nat Methods. 2017 May;14(5):491-493. doi: 10.1038/nmeth.4227.
 
 #####
 ## Author and License
@@ -26,8 +30,10 @@ samtools v.1.3+ (Other versions not tested)
 #####
 ##USAGE
 
+Note: SCcaller now allows both SNV and INDEL calling (new in v1.2). INDELs are called with SNVs together by default.
+
 ###
-###General SNV detection
+###General SNV (INDEL) detection
 
 #####I. Prepare mpileupfile of a single cell bam for analysis
 
@@ -43,7 +49,7 @@ The snpin.bed or snpin.vcf is a file of candidate snp positions in bed (1-based)
 
 This list of known heterozygous SNPs does not have to be precise, because the following analysis is robust to noise at this step and SNVs will be recalled using SCcaller in later steps.
 
-#####III. Calling all potential SNVs
+#####III. Calling all potential SNVs (INDELs)
 
 python sccaller.py -a varcall -i cell.chr1.mpileup -s outputheader.chr1.hsnp.bed -o outputheader.chr1
 
@@ -73,7 +79,7 @@ Column 12, likelihoods of heterozygous variant, after correcting allelic amplifi
 
 Column 13, likelihoods of homozygous variant, after correcting allelic amplification bias
 
-#####IV. Calling SNVs using SCcaller
+#####IV. Calling SNVs (INDELs) using SCcaller
 
 Generate null distribution of artifacts
 
@@ -87,10 +93,14 @@ Filter variants at alpha=0.01 (corresponding eta=0.197 in the case above)
 
 awk '$12!=0' outputheader.chr1.varcall.bed | awk '$11/$12<0.197 && $7/($6+$7)>1/8 && $8=="PASS"' > outputheader.chr1.sccaller.bed
 
-The file outputheader.sccaller.bed is the final callset using SCcaller.
+Further filtration to remove potential sequencing errors (recommanded especially for INDEL calling, new in v1.2)
+
+awk '$10/$12 < 0.5' outputheader.chr1.sccaller.bed > outputheader.chr1.sccaller.clean.bed
+
+The file outputheader.sccaller.clean.bed is the final callset using SCcaller.
 
 ###
-###Somatic SNV detection
+###Somatic SNV (INDEL) detection
 
 #####I. Prepare mpileupfile of bulk/control bam for as controls
 
@@ -100,7 +110,7 @@ Highly recommend users generate mpileup files for each chromosome, and analyze t
 
 #####II. Detect if variant exist in bulk (by chromosome)
 
-python reasoning.py -m bulk.chr1.mpileup -i cell.chr1.sccaller.bed -o cell-bulk.reason.txt -c chr1
+python reasoning.py -m bulk.chr1.mpileup -i cell.chr1.sccaller.clean.bed -o cell-bulk.reason.txt -c chr1
 
 #####III. Keep variants only with 'refgenotype' in cell-bulk.reason.txt file.
 
@@ -109,9 +119,17 @@ python reasoning.py -m bulk.chr1.mpileup -i cell.chr1.sccaller.bed -o cell-bulk.
 #####
 ##RELEASE NOTES
 
-V1.1, 2016.07.25, fixing bugs
+v1.2, 2017.05.01, allow INDEL calling, release version
 
-v1.0, 2016.04.26, the cleanup and release version of v0.0.4
+v1.1.3, 2017.01.09, users can change the min mapQ, default to 40
+
+v1.1.2, 2016.12.30, fixing bugs
+
+v1.1.1, 2016.12.29, update read_mpileup to consider indels
+
+V1.1, 2016.07.25, fixing bugs, release version
+
+v1.0, 2016.04.26, release version
 
 v0.0.4, 2016.04.26, fixed bugs in readling mpileup file
 
