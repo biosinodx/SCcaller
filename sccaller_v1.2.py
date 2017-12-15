@@ -31,7 +31,7 @@ import re
 from collections import Counter
 
 #Parse commandline arguments
-parser=argparse.ArgumentParser(description="sccaller.py, v1.1.x, Xiao Dong, biosinodx@gmail.com, xiao.dong@einstein.yu.edu")
+parser=argparse.ArgumentParser(description="sccaller.py, v1.2, Xiao Dong, biosinodx@gmail.com, xiao.dong@einstein.yu.edu")
 parser.add_argument("-a", "--analysis", type=str,required=True, help="{hsnp, varcall, cutoff}")
 
 parser.add_argument("-i", "--input", type=str,required=True, help="The input file, required. {hsnp, varcall} mpileup file generated using 'samtools mpileup -C50 -Osf refgenome.fa input.bam > input.mpileup', samtools version 1.3 was tested good; {cutoff}: bedfile generated from {varcall}")
