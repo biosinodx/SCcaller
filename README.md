@@ -64,6 +64,8 @@ python sccaller_v2.0.0.py \
   --snp_type dbsnp \ # using SNPs from dbSNP database (or other database)
   
   --snp_in dbsnp.vcf (or bed) \ # vcf or bed file containing all SNPs in dbSNP (or other) database
+  
+  --cpu_num 8 \ # using 8 cpu threads
        
   --engine samtools # using samtools engine
 
