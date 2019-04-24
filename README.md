@@ -63,7 +63,7 @@ python sccaller_v2.0.0.py \
   
   --snp_type dbsnp \ # using SNPs from dbSNP database (or other database)
   
-  --snp_in hsnp.vcf (or bed) \ # vcf or bed file containing all SNPs in dbSNP (or other) database
+  --snp_in dbsnp.vcf (or bed) \ # vcf or bed file containing all SNPs in dbSNP (or other) database
        
   --engine samtools # using samtools engine
 
