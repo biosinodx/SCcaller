@@ -104,7 +104,7 @@ Please note, sccaller was designed assuming diploidy genome and two copies of ch
 #####
 ## RELEASE NOTES
 
-v2.0.0, 2019.04.01, allowing parallele processing, optimizing I/O, optimizing pipeline, output in vcf format, and fixing bugs
+v2.0.0, 2019.04.01, allowing parallel processing, optimizing I/O, optimizing pipeline, output in vcf format, and fixing bugs
 
 v1.21, 2018.08.18, fixing bugs
 
