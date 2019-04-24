@@ -12,7 +12,7 @@ Dong X et al. Accurate identification of single-nucleotide variants in whole-gen
 #####
 ## Author and License
 
-Author: Xiao Dong, Yujue Wang
+Authors: Xiao Dong, Yujue Wang
 
 Email: biosinodx@gmail.com (X.D.), xiao.dong@einstein.yu.edu (X.D.), spsc83@gmail.com (Y.W.)
 
