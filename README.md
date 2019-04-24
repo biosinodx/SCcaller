@@ -97,6 +97,10 @@ grep '0/1' cell.vcf | grep 'True' | awk '$1<=22 && $7=="." && length($5)==1' | a
 
 grep '0/1' cell.vcf | grep 'True' | awk '$1<=22 && $7=="." && length($5)>1' | awk -F "[:,]" '$8+$9>=20' > cell.somatic.indel.vcf
 
+### III. Notes on X/Y chromosome in males and ploidy 
+
+Please note, sccaller was designed assuming diploidy genome and two copies of chromosomes. It cannot be used for calling mutations from X/Y chromosome of a male subject.
+
 #####
 ## RELEASE NOTES
 
