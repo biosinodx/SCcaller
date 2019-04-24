@@ -31,7 +31,7 @@ samtools v.1.9+ (Other versions not tested)
 ## USAGE
 
 ###
-### I. Basic usage: calling SNV and INDEL from a cell
+### I. Basic usage: calling SNVs and INDELs from a cell
 
 #### I.a When you have heterozygous SNPs pre-called from bulk DNA of the same subject,
 
@@ -69,7 +69,7 @@ python sccaller_v2.0.0.py \
        
   --engine samtools # using samtools engine
 
-### II. Calling somatic mutations not present in bulk DNA
+### II. Calling somatic SNVs and INDELs not present in bulk DNA
 
 #### II.a Step 1. Calling SNVs and INDELs from a cell together with bulk DNA in input,
 
@@ -91,7 +91,7 @@ python sccaller_v2.0.0.py \
      
   --engine samtools # using samtools engine
 
-#### II.b Step 2. Filtering out mutations observed in bulk or sequencing depth <= 20x in the single cell
+#### II.b Step 2. Filtering out SNVs and INDELs observed in bulk or sequencing depth <= 20x in the single cell
 
 grep '0/1' cell.vcf | grep 'True' | awk '$7=="." && length($5)==1' | awk -F "[:,]" '$8+$9>=20' > cell.somatic.snv.vcf
 
