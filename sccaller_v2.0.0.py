@@ -9,7 +9,7 @@
 # See the GNU Affero General Public License for more details.
 
 ### updates
-# v2.0.0, 2019.04.01, allowing parallele processing, optimizing I/O, optimizing pipeline, output in vcf format, and fixing bugs
+# v2.0.0, 2019.04.01, allowing parallel processing, optimizing I/O, optimizing pipeline, output in vcf format, and fixing bugs
 # v1.21, 2018.08.18, fixing bugs
 # v1.2, 2017.05.01, allowing INDEL calling
 # v1.1.3, 2017.01.09, users can change the min mapQ, default to 40
