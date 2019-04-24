@@ -91,11 +91,11 @@ python sccaller_v2.0.0.py \
      
   --engine samtools # using samtools engine
 
-#### II.b Step 2. Filtering
+#### II.b Step 2. Filtering out mutations observed in bulk or sequencing depth <= 20x in the single cell
 
-grep '0/1' cell.vcf | grep 'True' | awk '$1<=22 && $7=="." && length($5)==1' | awk -F "[:,]" '$8+$9>=20' > cell.somatic.snv.vcf
+grep '0/1' cell.vcf | grep 'True' | awk '$7=="." && length($5)==1' | awk -F "[:,]" '$8+$9>=20' > cell.somatic.snv.vcf
 
-grep '0/1' cell.vcf | grep 'True' | awk '$1<=22 && $7=="." && length($5)>1' | awk -F "[:,]" '$8+$9>=20' > cell.somatic.indel.vcf
+grep '0/1' cell.vcf | grep 'True' | awk '$7=="." && length($5)>1' | awk -F "[:,]" '$8+$9>=20' > cell.somatic.indel.vcf
 
 ### III. Notes on X/Y chromosome in males and ploidy 
 
