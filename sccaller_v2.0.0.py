@@ -2242,7 +2242,7 @@ def main():
                    "##source=SCcallerV{3}\n" \
                    "##INFO=<ID=NS,Number=1,Type=Integer,Description=\"Number of Samples With Data\">\n" \
                    "##FILTER=<ID={2},Description=\"Multiple genotype\">\n" \
-                   "##FILTER=<ID={4}{5},Description=\"Number of variant supporting reads < {5}\"\n" \
+                   "##FILTER=<ID={4}{5},Description=\"Number of variant supporting reads < {5}\">\n" \
                    "##FORMAT=<ID=GT,Number=1,Type=String,Description=\"Genotype\">\n" \
                    "##FORMAT=<ID=AD,Number=.,Type=Integer,Description=\"" \
                    "Allelic depths for the ref and alt alleles in the order listed\">\n" \
