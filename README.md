@@ -30,6 +30,9 @@ samtools v.1.9+ (Other versions not tested)
 #####
 ## USAGE
 
+ON 2024.11.27, PLEASE SEE THE FOLLOWING GITHUB PAGE FOR ITS USAGE:
+https://github.com/XiaoDongLab/SCcaller-pipeline
+
 ###
 ### I. Basic usage: calling SNVs and INDELs from a cell
 
